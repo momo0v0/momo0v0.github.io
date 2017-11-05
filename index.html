@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <style>
+    body { margin: 0; }
+    #video { width: 960px; max-width: 100vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  </style>
+</head>
+<body>
+  <video id="video" poster="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/thumbnail.png" controls></video>
+  <script>
+  if (Hls.isSupported()) {
+    var video = document.getElementById('video');
+    var hls = new Hls({ autoStartLoad: false });
+    hls.loadSource('static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/hls.m3u8');
+    hls.attachMedia(video);
+    video.addEventListener('play',function() {
+      hls.startLoad();
+    });
+  }
+  </script>
+</body>
+</html>
