@@ -10,16 +10,21 @@
   </style>
 </head>
 <body>
-  <video id="video" poster="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/thumbnail.png" controls></video>
+  <video id="video" poster="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/thumbnail.png" data-src="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/hls.m3u8" controls></video>
   <script>
+  var video = document.getElementById('video');
+  var source = video.dataset.src;
   if (Hls.isSupported()) {
-    var video = document.getElementById('video');
     var hls = new Hls({ autoStartLoad: false });
-    hls.loadSource('static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/hls.m3u8');
+    hls.loadSource(source);
     hls.attachMedia(video);
     video.addEventListener('play',function() {
       hls.startLoad();
-    });
+    })
+  } else {
+    if (video.canPlayType('application/vnd.apple.mpegURL') !== '') {
+      video.src = source;
+    }
   }
   </script>
 </body>
