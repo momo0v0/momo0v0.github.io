@@ -6,11 +6,19 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <style>
     body { margin: 0; }
-    #video { width: 960px; max-width: 100vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    main { width: 960px; max-width: 100vw; max-height: 100vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    h1 { text-align: center; margin: 10px 0 20px 0; font: normal 24px Futura, Verdana, "Lucida Grande", Helvetica, Arial, sans-serif; color: #404040; }
+    a { text-decoration: none; color: inherit; }
+    video { width: 100%; }
   </style>
 </head>
 <body>
-  <video id="video" poster="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/thumbnail.png" data-src="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/hls.m3u8" controls></video>
+  <main>
+    <h1>
+      <a href="https://github.com/momo0v0"><img src="static/avatar-384.png" srcset="static/avatar-128.png, static/avatar-256.png 2x, static/avatar-384.png 3x" width="128" height="128" alt="avatar"><br>momo_0v0</a>
+    </h1>
+    <video id="video" poster="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/thumbnail.png" data-src="static/%E8%8E%AB%E5%AF%92%E6%88%91%E5%BF%83%E7%BF%B1%E7%BF%94%E5%BE%AE%E8%AE%B0%E5%BD%95/hls.m3u8" controls></video>
+  </main>
   <script>
   var video = document.getElementById('video');
   var source = video.dataset.src;
